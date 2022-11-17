@@ -6,7 +6,7 @@ namespace Ex31
 {
     class Cow : Character
     {
-        public Cow(string name, float hp, float power) : base(name, hp, power) { }
+        public Cow(string name, float hp, float power,bool animal) : base(name, hp, power,animal) { }
         public override void Attack(Character destination)
         {
             if (hp >= 5)
@@ -16,6 +16,10 @@ namespace Ex31
                 Console.WriteLine($"{destination.name}は{this.power}のダメージ");
                 destination.hp -= this.power;
                 Console.WriteLine($"{destination.name}の残りのHPは{destination.hp}");
+                if (destination.hp <= 0)
+                {
+                    Console.WriteLine($"{destination.name}はもう戦えない。");
+                }
             }
             else
             {
